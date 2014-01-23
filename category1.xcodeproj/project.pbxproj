@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		031143DE188BB76400EF8133 /* categoryTabNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031143DD188BB76400EF8133 /* categoryTabNavigationViewController.m */; };
-		031143E1188BCBEF00EF8133 /* productDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031143E0188BCBEF00EF8133 /* productDetailViewController.m */; };
 		03233EA31888106700CC3C21 /* mainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233EA21888106700CC3C21 /* mainTabBarViewController.m */; };
 		0331A1EA188E022C00A8E04A /* PagedImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0331A1E9188E022C00A8E04A /* PagedImageScrollView.m */; };
 		033BE0B7188A77C8008290B3 /* topNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033BE0B6188A77C8008290B3 /* topNavigationViewController.m */; };
@@ -54,8 +53,6 @@
 /* Begin PBXFileReference section */
 		031143DC188BB76400EF8133 /* categoryTabNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryTabNavigationViewController.h; sourceTree = "<group>"; };
 		031143DD188BB76400EF8133 /* categoryTabNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryTabNavigationViewController.m; sourceTree = "<group>"; };
-		031143DF188BCBEF00EF8133 /* productDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productDetailViewController.h; sourceTree = "<group>"; };
-		031143E0188BCBEF00EF8133 /* productDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productDetailViewController.m; sourceTree = "<group>"; };
 		03233EA11888106700CC3C21 /* mainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTabBarViewController.h; sourceTree = "<group>"; };
 		03233EA21888106700CC3C21 /* mainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTabBarViewController.m; sourceTree = "<group>"; };
 		0331A1E8188E022C00A8E04A /* PagedImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedImageScrollView.h; sourceTree = "<group>"; };
@@ -172,26 +169,24 @@
 				03610A31188F57520076454A /* ProductDetailCell.m */,
 				03610A3E188F681D0076454A /* ProductDetailTableViewController.h */,
 				03610A3F188F681D0076454A /* ProductDetailTableViewController.m */,
-				031143DF188BCBEF00EF8133 /* productDetailViewController.h */,
-				031143E0188BCBEF00EF8133 /* productDetailViewController.m */,
 				03832394188B692700199B88 /* productTableViewController.h */,
 				03832395188B692700199B88 /* productTableViewController.m */,
 				03832397188B6A7E00199B88 /* storyboardProductTableViewController.h */,
 				03832398188B6A7E00199B88 /* storyboardProductTableViewController.m */,
-				0372D27218890B7F00BEFDB6 /* loginViewController.h */,
-				0372D27318890B7F00BEFDB6 /* loginViewController.m */,
 				039983201887CBE600AD7AF2 /* categoryListTableViewController.h */,
 				039983211887CBE600AD7AF2 /* categoryListTableViewController.m */,
 				039983231887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.h */,
 				039983241887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.m */,
-				039982F51887867E00AD7AF2 /* ViewController.h */,
-				039982F61887867E00AD7AF2 /* ViewController.m */,
-				03233EA11888106700CC3C21 /* mainTabBarViewController.h */,
-				03233EA21888106700CC3C21 /* mainTabBarViewController.m */,
 				031143DC188BB76400EF8133 /* categoryTabNavigationViewController.h */,
 				031143DD188BB76400EF8133 /* categoryTabNavigationViewController.m */,
+				03233EA11888106700CC3C21 /* mainTabBarViewController.h */,
+				03233EA21888106700CC3C21 /* mainTabBarViewController.m */,
 				033BE0B5188A77C8008290B3 /* topNavigationViewController.h */,
 				033BE0B6188A77C8008290B3 /* topNavigationViewController.m */,
+				0372D27218890B7F00BEFDB6 /* loginViewController.h */,
+				0372D27318890B7F00BEFDB6 /* loginViewController.m */,
+				039982F51887867E00AD7AF2 /* ViewController.h */,
+				039982F61887867E00AD7AF2 /* ViewController.m */,
 				0331A1E8188E022C00A8E04A /* PagedImageScrollView.h */,
 				0331A1E9188E022C00A8E04A /* PagedImageScrollView.m */,
 				039982F81887867E00AD7AF2 /* Images.xcassets */,
@@ -349,7 +344,6 @@
 				03233EA31888106700CC3C21 /* mainTabBarViewController.m in Sources */,
 				0331A1EA188E022C00A8E04A /* PagedImageScrollView.m in Sources */,
 				03F108DA188AC80A001F145A /* mainConfiguration.m in Sources */,
-				031143E1188BCBEF00EF8133 /* productDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

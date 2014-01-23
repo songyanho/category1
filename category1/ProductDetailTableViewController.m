@@ -12,17 +12,26 @@
 #import "PagedImageScrollView.h"
 
 @interface ProductDetailTableViewController ()
-@property (strong,nonatomic) PagedImageScrollView *imageSlider;
 @property (strong,nonatomic) NSDictionary *productBasic;
 @property (strong,nonatomic) NSDictionary *productStock;
 @property (strong,nonatomic) NSDictionary *productField;
 @property (strong,nonatomic) NSDictionary *productImages;
-
+@property (strong,nonatomic) PagedImageScrollView *pageScrollView;
+@property (nonatomic) NSUInteger totalImageCount;
+@property (strong,nonatomic) NSMutableArray *productImagesDataArray;
+@property Boolean rotating;
 @end
 
 @implementation ProductDetailTableViewController
 
 @synthesize productID = _productID;
+
+#pragma -mark - Rotation
+
+-(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    self.rotating = TRUE;
+    [self.tableView reloadData];
+}
 
 # pragma mark - Synthesize
 
@@ -71,7 +80,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -80,12 +89,18 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductDetailCell" bundle:nil] forCellReuseIdentifier:@"Product Detail Cell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Product Image Cell"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tableView.hidden = TRUE;
 }
 
 #pragma mark - Table view data source
@@ -97,24 +112,72 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return 3;
 }
 
-- (UITableViewCell *)ta
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == 0){
+        return 190;
+    }else{
+        return 150;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Product Detail Cell";
-    if(indexPath.row == 1){
-        ProductDetailCell *cell = (ProductDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if(indexPath.row == 0){
+        static NSString *CellIdentifier = @"Product Image Cell";
+        UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if((!self.pageScrollView)||(self.rotating)){
+            CGFloat currentpage = 0;
+            if(self.pageScrollView){
+                if(self.pageScrollView.pageControl.currentPage)
+                    currentpage = self.pageScrollView.pageControl.currentPage;
+            }
+            self.pageScrollView = [[PagedImageScrollView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 180)];
+            self.totalImageCount = [self.productImages count];
+            for (NSDictionary *productImageDictionary in self.productImages) {
+                NSURL *thisImageUrl = [NSURL URLWithString:[productImageDictionary valueForKeyPath:@"url"]];
+                dispatch_queue_t fetchCategoryQueue = dispatch_queue_create("fetchImage", NULL);
+                dispatch_async(fetchCategoryQueue , ^{
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:thisImageUrl];
+                    [request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+                    [request setHTTPMethod:@"GET"];
+                    NSError *error = nil;
+                    NSURLResponse *response = nil;
+                    NSData *responseImage = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+                    UIImage *thisReturnImage = [UIImage imageWithData:responseImage];
+                    dispatch_async(dispatch_get_main_queue(), ^(void){
+                        [self updateImageSlider:thisReturnImage];
+                    });
+                });
+            }
+            if((currentpage > 0) &&(self.rotating)){
+                [self.pageScrollView scrollToPreviousPage:currentpage];
+            }
+            self.rotating = FALSE;
+        }
+        [cell addSubview:self.pageScrollView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
         return cell;
     }else{
+        static NSString *CellIdentifier = @"Product Detail Cell";
         ProductDetailCell *cell = (ProductDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.frame =
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        //cell.contentMode = UIViewContentModeScaleToFill;
+        cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
         return cell;
     }
     
     
+}
+
+- (void)updateImageSlider:(UIImage *)thisImage{
+    [self.productImagesDataArray addObject:thisImage];
+    if([self.productImagesDataArray count] == self.totalImageCount){
+        [self.pageScrollView setScrollViewContents:self.productImagesDataArray];
+    }
 }
 
 #pragma mark - Navigation

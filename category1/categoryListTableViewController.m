@@ -41,6 +41,7 @@
     NSDictionary *currentCategoryDictionary = self.categories[indexPath.row];
     cell.textLabel.text = [currentCategoryDictionary valueForKeyPath:@"categoryname"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     return cell;
 }
 

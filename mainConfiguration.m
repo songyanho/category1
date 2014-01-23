@@ -54,30 +54,5 @@
     [[NSUserDefaults standardUserDefaults] setObject:_membercode forKey:@"code"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-/*
-- (NSData *)performHttpPost:(NSString *)postData action:(NSString *)postShortUrl isMember:(NSUInteger) isMember{
-    __block NSData *responseFromHttp = nil;
-    NSURL *postUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://crmtest.appbox.com.my/%@", postShortUrl]];
-    dispatch_queue_t customMT = dispatch_queue_create("customMT", NULL);
-    dispatch_async(customMT, ^(void){
-        NSString *post;
-        if(isMember == 1){
-            post = [NSString stringWithFormat:@"%@%@",self.memberQueue,postData];
-        }else{
-            post = [NSString stringWithString:postData];
-        }
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:postUrl];
-        [request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
-        [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
-        [request setHTTPMethod:@"POST"];
-        NSError *error = nil;
-        NSURLResponse *response = nil;
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if (!error){
-            responseFromHttp = [NSData dataWithData: data];
-        }
-    });
-    return responseFromHttp;
-}
-*/
+
 @end

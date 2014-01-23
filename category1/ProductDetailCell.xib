@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Product Detail Cell" rowHeight="92" id="cYb-ON-UED" customClass="ProductDetailCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Product Detail Cell" rowHeight="92" id="cYb-ON-UED" customClass="ProductDetailCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cYb-ON-UED" id="PMb-Ws-ZUK">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="cYb-ON-UED" id="PMb-Ws-ZUK">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

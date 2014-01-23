@@ -63,7 +63,7 @@
     NSDictionary *currenProduct = [self.productListArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [currenProduct valueForKeyPath:@"name"];
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[currenProduct valueForKeyPath:@"image"]]]];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     return cell;
 }
 

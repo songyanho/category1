@@ -16,6 +16,4 @@
 @property (strong,nonatomic) NSString *memberloginid;
 @property (strong,nonatomic) NSString *memberuserid;
 
-- (NSData *)performHttpPost:(NSString *)postData action:(NSString *)postUrl isMember:(NSUInteger) isMember;
-
 @end

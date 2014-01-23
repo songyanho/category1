@@ -15,19 +15,20 @@
 @implementation PagedImageScrollView
 
 
-#define PAGECONTROL_DOT_WIDTH 20
-#define PAGECONTROL_HEIGHT 20
+#define PAGECONTROL_DOT_WIDTH 10
+#define PAGECONTROL_HEIGHT 10
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    [self.scrollView removeFromSuperview];
+    [self.pageControl removeFromSuperview];
     if (self) {
         self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
         self.pageControl = [[UIPageControl alloc] init];
         [self setDefaults];
         [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-        [self addSubview:self.scrollView];
-        [self addSubview:self.pageControl];
+        
         self.scrollView.delegate = self;
     }
     return self;
@@ -48,11 +49,12 @@
     {
         self.pageControl.frame = CGRectMake(0, self.scrollView.frame.size.height - PAGECONTROL_HEIGHT, width, PAGECONTROL_HEIGHT);
     }
+    [self addSubview:self.pageControl];
 }
 
 - (void)setDefaults
 {
-    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     self.pageControl.hidesForSinglePage = YES;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -63,22 +65,24 @@
 
 - (void)setScrollViewContents: (NSArray *)images
 {
-    //remove original subviews first.
     for (UIView *subview in [self.scrollView subviews]) {
         [subview removeFromSuperview];
     }
-    if (images.count <= 0) {
+    if (images.count == 0) {
         self.pageControl.numberOfPages = 0;
         return;
     }
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * images.count, self.scrollView.frame.size.height);
     for (int i = 0; i < images.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * i, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+        imageView.backgroundColor = [UIColor whiteColor];
         [imageView setImage:images[i]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.scrollView addSubview:imageView];
     }
     self.pageControl.numberOfPages = images.count;
-    //call pagecontrolpos setter.
+    [self addSubview:self.scrollView];
     self.pageControlPos = self.pageControlPos;
 }
 
@@ -100,9 +104,18 @@
         return;
     }
     CGFloat pageWidth = scrollView.frame.size.width;
-    //switch page at 50% across
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
+}
+
+- (void)scrollToPreviousPage:(CGFloat)previouspage{
+    CGRect frame = self.scrollView.frame;
+    self.pageControl.currentPage = previouspage;
+    frame.origin.x = frame.size.width * self.pageControl.currentPage;
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+    self.pageControlIsChangingPage = YES;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
