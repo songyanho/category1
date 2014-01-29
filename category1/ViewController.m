@@ -17,11 +17,7 @@
 @synthesize moviePlayerController = _moviePlayerController;
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    if((toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)||(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)){
-        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    }else{
-        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    }
+    [self.moviePlayerController.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     [self.moviePlayerController.view removeFromSuperview];
     [self.view addSubview:self.moviePlayerController.view];
     [[NSNotificationCenter defaultCenter] addObserver:self

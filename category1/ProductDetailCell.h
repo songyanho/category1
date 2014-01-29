@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductDetailCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *quantityLabel;
 
 @end

@@ -22,4 +22,5 @@ enum PageControlPosition {
 @property (nonatomic, assign) enum PageControlPosition pageControlPos;
 - (void)scrollToPreviousPage:(CGFloat)previouspage;
 - (void)setScrollViewContents: (NSArray *)images;
+- (void)presetLoadingActivityIndicator:(NSUInteger)imageCount;
 @end

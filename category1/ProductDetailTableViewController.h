@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductDetailTableViewController : UITableViewController
+@interface ProductDetailTableViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 @property (strong,nonatomic) NSString *productID;
 @property (strong,nonatomic) NSString *productName;

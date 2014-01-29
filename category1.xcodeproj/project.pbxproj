@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030D037218950D2A003352CB /* imagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030D037118950D2A003352CB /* imagePreviewViewController.m */; };
 		031143DE188BB76400EF8133 /* categoryTabNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031143DD188BB76400EF8133 /* categoryTabNavigationViewController.m */; };
 		03233EA31888106700CC3C21 /* mainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233EA21888106700CC3C21 /* mainTabBarViewController.m */; };
 		0331A1EA188E022C00A8E04A /* PagedImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0331A1E9188E022C00A8E04A /* PagedImageScrollView.m */; };
@@ -37,6 +38,8 @@
 		039983191887887400AD7AF2 /* Untitled.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 039983181887887400AD7AF2 /* Untitled.mp4 */; };
 		039983221887CBE600AD7AF2 /* categoryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039983211887CBE600AD7AF2 /* categoryListTableViewController.m */; };
 		039983251887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039983241887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.m */; };
+		03DD35C518963FBC00999EE1 /* ProductFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DD35C418963FBC00999EE1 /* ProductFieldCell.xib */; };
+		03DD35C818963FED00999EE1 /* ProductFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DD35C718963FED00999EE1 /* ProductFieldCell.m */; };
 		03F108DA188AC80A001F145A /* mainConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F108D9188AC80A001F145A /* mainConfiguration.m */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030D037018950D2A003352CB /* imagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imagePreviewViewController.h; sourceTree = "<group>"; };
+		030D037118950D2A003352CB /* imagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagePreviewViewController.m; sourceTree = "<group>"; };
 		031143DC188BB76400EF8133 /* categoryTabNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryTabNavigationViewController.h; sourceTree = "<group>"; };
 		031143DD188BB76400EF8133 /* categoryTabNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryTabNavigationViewController.m; sourceTree = "<group>"; };
 		03233EA11888106700CC3C21 /* mainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTabBarViewController.h; sourceTree = "<group>"; };
@@ -97,6 +102,9 @@
 		039983211887CBE600AD7AF2 /* categoryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryListTableViewController.m; sourceTree = "<group>"; };
 		039983231887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stroyboardCategoryListTableViewController.h; sourceTree = "<group>"; };
 		039983241887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stroyboardCategoryListTableViewController.m; sourceTree = "<group>"; };
+		03DD35C418963FBC00999EE1 /* ProductFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductFieldCell.xib; sourceTree = "<group>"; };
+		03DD35C618963FED00999EE1 /* ProductFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductFieldCell.h; sourceTree = "<group>"; };
+		03DD35C718963FED00999EE1 /* ProductFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductFieldCell.m; sourceTree = "<group>"; };
 		03F108D8188AC80A001F145A /* mainConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainConfiguration.h; path = ../mainConfiguration.h; sourceTree = "<group>"; };
 		03F108D9188AC80A001F145A /* mainConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mainConfiguration.m; path = ../mainConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,9 +172,14 @@
 				03F108D9188AC80A001F145A /* mainConfiguration.m */,
 				039982EF1887867E00AD7AF2 /* Main_iPhone.storyboard */,
 				039982F21887867E00AD7AF2 /* Main_iPad.storyboard */,
+				030D037018950D2A003352CB /* imagePreviewViewController.h */,
+				030D037118950D2A003352CB /* imagePreviewViewController.m */,
 				03610A36188F59350076454A /* ProductDetailCell.xib */,
 				03610A30188F57520076454A /* ProductDetailCell.h */,
 				03610A31188F57520076454A /* ProductDetailCell.m */,
+				03DD35C418963FBC00999EE1 /* ProductFieldCell.xib */,
+				03DD35C618963FED00999EE1 /* ProductFieldCell.h */,
+				03DD35C718963FED00999EE1 /* ProductFieldCell.m */,
 				03610A3E188F681D0076454A /* ProductDetailTableViewController.h */,
 				03610A3F188F681D0076454A /* ProductDetailTableViewController.m */,
 				03832394188B692700199B88 /* productTableViewController.h */,
@@ -306,6 +319,7 @@
 			files = (
 				039983191887887400AD7AF2 /* Untitled.mp4 in Resources */,
 				034AD1F2188C101100EBC134 /* The-Secret-Life-of-Walter-Mitty-1.png in Resources */,
+				03DD35C518963FBC00999EE1 /* ProductFieldCell.xib in Resources */,
 				039982F41887867E00AD7AF2 /* Main_iPad.storyboard in Resources */,
 				039982F91887867E00AD7AF2 /* Images.xcassets in Resources */,
 				03610A37188F59350076454A /* ProductDetailCell.xib in Resources */,
@@ -329,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DD35C818963FED00999EE1 /* ProductFieldCell.m in Sources */,
 				031143DE188BB76400EF8133 /* categoryTabNavigationViewController.m in Sources */,
 				0372D27418890B7F00BEFDB6 /* loginViewController.m in Sources */,
 				03832399188B6A7E00199B88 /* storyboardProductTableViewController.m in Sources */,
@@ -340,6 +355,7 @@
 				03610A40188F681D0076454A /* ProductDetailTableViewController.m in Sources */,
 				039982EA1887867E00AD7AF2 /* main.m in Sources */,
 				039983251887DA0B00AD7AF2 /* stroyboardCategoryListTableViewController.m in Sources */,
+				030D037218950D2A003352CB /* imagePreviewViewController.m in Sources */,
 				039983221887CBE600AD7AF2 /* categoryListTableViewController.m in Sources */,
 				03233EA31888106700CC3C21 /* mainTabBarViewController.m in Sources */,
 				0331A1EA188E022C00A8E04A /* PagedImageScrollView.m in Sources */,
